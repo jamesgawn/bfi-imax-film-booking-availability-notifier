@@ -1,7 +1,7 @@
 {
-  "name": "bfi-imax-film-booking-availability-notifier",
+  "name": "lambda-example",
   "version": "1.0.0",
-  "description": "A tool to automatically send notifications of new films available for booking at the BFI imax.",
+  "description": "A sample project with a template structure to speed up creating, testing, and publishing a lambda function.",
   "main": "app.js",
   "scripts": {
     "test": "npm run test-node",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jamesgawn/bfi-imax-film-booking-availability-notifier.git"
+    "url": "git+https://github.com/jamesgawn/aws-lambda-function-project-template.git"
   },
   "dependencies": {
     "alexa-sdk": "^1.0.18",
@@ -30,7 +30,7 @@
   "author": "James Gawn",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jamesgawn/bfi-imax-film-booking-availability-notifier/issues"
+    "url": "https://github.com/jamesgawn/aws-lambda-function-project-template/issues"
   },
-  "homepage": "https://github.com/jamesgawn/bfi-imax-film-booking-availability-notifier#readme"
+  "homepage": "https://github.com/jamesgawn/aws-lambda-function-project-template#readme"
 }
