@@ -1,0 +1,36 @@
+{
+  "name": "bfi-imax-film-booking-availability-notifier",
+  "version": "1.0.0",
+  "description": "A tool to automatically send notifications of new films available for booking at the BFI imax.",
+  "main": "app.js",
+  "scripts": {
+    "test": "npm run test-node",
+    "test-node": "mocha --recursive ./test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamesgawn/bfi-imax-film-booking-availability-notifier.git"
+  },
+  "dependencies": {
+    "alexa-sdk": "^1.0.18",
+    "bunyan": "^1.8.12"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.2.1",
+    "sinon": "^1.17.7",
+    "gulp": "^3.9.1",
+    "gulp-install": "^1.1.0",
+    "gulp-zip": "^4.0.0",
+    "del": "^3.0.0",
+    "node-aws-lambda": "^0.1.8",
+    "run-sequence": "^2.2.1",
+      "sinon-chai": "^3.0.0"
+  },
+  "author": "James Gawn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jamesgawn/bfi-imax-film-booking-availability-notifier/issues"
+  },
+  "homepage": "https://github.com/jamesgawn/bfi-imax-film-booking-availability-notifier#readme"
+}

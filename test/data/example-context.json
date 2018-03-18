@@ -1,0 +1,11 @@
+{
+    "callbackWaitsForEmptyEventLoop": true,
+    "logGroupName": "/aws/lambda/SampleLambda",
+    "logStreamName": "2018/03/18/[$LATEST]e6943e885d9148cf8db2827d6c561df2",
+    "functionName": "SampleLambda",
+    "memoryLimitInMB": "128",
+    "functionVersion": "$LATEST",
+    "invokeid": "67570224-2ae6-11e8-8cf8-33ece133865e",
+    "awsRequestId": "67570224-2ae6-11e8-8cf8-33ece133865e",
+    "invokedFunctionArn": "arn:aws:lambda:eu-west-2:235:function:SampleLambda"
+}
