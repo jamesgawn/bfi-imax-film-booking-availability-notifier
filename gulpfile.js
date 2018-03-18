@@ -45,7 +45,7 @@ gulp.task('upload-lambda', function(callback) {
 	awsLambda.deploy('./dist-lambda.zip', require("./lambda-config.js"), callback);
 });
 
-gulp.task('deploy-alexa-lambda', function(callback) {
+gulp.task('deploy-lambda', function(callback) {
 	return runSequence(
 		['build-lambda'],
 		['upload-lambda'],
