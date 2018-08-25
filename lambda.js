@@ -41,7 +41,7 @@ exports.handler = function (event, context, callback) {
 
 								dbHelper.insertFilm(film).then(() => {
 
-									let tweet = film.title + ' is now available for booking!';
+									let tweet = film.title + ' is now available for booking! For more details go to https://www.odeon.co.uk/films/book/' + film.masterId + '/';
 
 									twitter.post('statuses/update', {status: tweet}, (error) => {
 
