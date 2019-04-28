@@ -1,6 +1,5 @@
 module.exports = {
-	accessKeyId: process.env['AWS_ACCESS_KEY_ID'],
-	secretAccessKey: process.env['AWS_SECRET_ACCESS_KEY'],
+	profile: process.env["AWS_PROFILE"],
 	region: process.env['AWS_REGION'],
 	handler: 'lambda.handler',
 	role: process.env['AWS_LAMBDA_ROLE'],
@@ -9,5 +8,5 @@ module.exports = {
 	timeout: 10,
 	memorySize: 128,
 	publish: true,
-	runtime: 'nodejs6.10'
+	runtime: 'nodejs8.10'
 };

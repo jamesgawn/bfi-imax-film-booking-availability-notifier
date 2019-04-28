@@ -5,50 +5,38 @@ let install = require('gulp-install');
 let runSequence = require('run-sequence');
 let awsLambda = require("node-aws-lambda");
 
-gulp.task('clean', function() {
-	return del(['./dist', './.nyc_output', 'dist-lambda.zip', 'dist-lambda']);
-});
+const { series, parallel } = require('gulp');
 
-gulp.task('copy-lib', function() {
+function clean() {
+	return del(['./dist', './.nyc_output', 'dist-lambda.zip', 'dist-lambda']);
+}
+
+function copyLib() {
 	return gulp.src('lib/**')
 		.pipe(gulp.dest('dist/lib'));
-});
+}
 
-gulp.task('node-mods', function() {
+function installDependancies() {
 	return gulp.src('./package.json')
 		.pipe(gulp.dest('dist/'))
 		.pipe(install({production: true}));
-});
+}
 
-gulp.task('copy-lambda', function() {
+function copyLambda() {
 	return gulp.src('lambda.js')
 		.pipe(gulp.dest('dist/'));
-});
+}
 
-gulp.task('zip-lambda', function() {
+function zipLambda() {
 	return gulp.src(['dist/**', '!dist/package.json', '!dist/package-lock.json'], {nodir: true})
 		.pipe(zip('dist-lambda.zip'))
 		.pipe(gulp.dest('./'));
-});
+}
 
-gulp.task('build-lambda', function(callback) {
-	return runSequence(
-		['clean'],
-		['copy-lib', 'copy-lambda'],
-		['node-mods'],
-		['zip-lambda'],
-		callback
-	);
-});
+exports.buildLambda = series(clean, parallel(copyLib, copyLambda), installDependancies, zipLambda);
 
-gulp.task('upload-lambda', function(callback) {
+exports.uploadLambda = (callback) => {
 	awsLambda.deploy('./dist-lambda.zip', require("./lambda-config.js"), callback);
-});
+};
 
-gulp.task('deploy-lambda', function(callback) {
-	return runSequence(
-		['build-lambda'],
-		['upload-lambda'],
-		callback
-	);
-});
+exports.deployLambda = series(this.buildLambda, this.uploadLambda);
